@@ -14,13 +14,14 @@ console.log(process.env.APP_URL);
 
   describe('Testing user POST route', () => {
     it('Should return a 200 status', () => {
-      let  username = 'username';
-      let password = 'password';
-      let email = 'email';
-      return superagent.post(`${process.env.APP_URL}/api/auth/register`)
-      .send({ username, password, email })
+      return superagent.post(`${process.env.APP_URI}/api/auth/register`)
+      .send({
+        username: 'test_user',
+        password: 'top secret',
+        email: 'test_user@gm.com',
+      })
       .then(res => {
-        expect(res.status).toEqaul(200);
+        expect(res.status).toEqual(200);
       });
     });
   });
