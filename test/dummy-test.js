@@ -14,7 +14,7 @@ console.log(process.env.APP_URL);
 
   describe('Testing user POST route', () => {
     it('Should return a 200 status', () => {
-      return superagent.post(`${process.env.APP_URL}/api/auth/register`)
+      return superagent.post(`${process.env.APP_URI}/api/auth/register`)
       .send({
         username: 'test_user',
         password: 'top secret',
