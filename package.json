@@ -10,7 +10,7 @@
     "start": "node index.js",
     "start-db": "mkdir -p ./db && mongod --dpath ./db",
     "stop-db": "killall mongod",
-    "test": "mocha",
+    "test": "nyc mocha",
     "lint": "eslint"
   },
   "repository": {
