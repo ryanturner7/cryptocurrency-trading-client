@@ -17,8 +17,8 @@ authRouter.post('/api/auth/register', jsonParser, (req, res, next) => {
   }
   console.log('body', req.body);
   User.create(req.body)
-  .then(token => res.send(token))
-  .catch(next);
+    .then(token => res.send(token))
+    .catch(next);
 });
 
 // authRouter.get('api/auth/register', basicAuth, (req, res, next) => {
