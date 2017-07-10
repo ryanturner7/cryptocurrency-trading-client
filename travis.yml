@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - '7'
+services:
+  - mongodb
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-4.8
+      - g++-4.8
+env:
+  - CXX=g++-4.8 APP_SECRET='   ' MONGODB_URI='mongodb://localhost/travis' AWS_BUCKET='   ' AWS_ACCESS_KEY_ID='  ' AWS_SECRET_ACCESS_KEY='  ' API_URL='http://localhost:3000' PORT=3000
+sudo: required
+before_script: npm i
+script:
+  - npm test
+  - npm run lint
