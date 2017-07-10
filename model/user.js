@@ -6,10 +6,9 @@ const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
-  name: {type: String, required: true},
+  passwordHash: {type: String, required: true},
   email: {type: String, required: true, unique: true},
   username: {type: String, required: true, unique: true},
-  passwordHash: {type: String, required: true, unique: true},
   tokenSeed: {type: String, required: true, unique: true},
 });
 
@@ -31,7 +30,7 @@ userSchema.methods.passwordHashCompare = function(password) {
   });
 };
 
-userSchema.methods.tokenSeedCreate = function() {
+userSchema.methods.tokenSeedCreate = function (){
   return new Promise((resolve, reject) => {
     let tries = 1;
 
@@ -41,8 +40,8 @@ userSchema.methods.tokenSeedCreate = function() {
       .then(() => resolve(this))
       .catch(err => {
         if(tries < 1)
-          return reject(new Error('server failed to create token seed'));
-        tries --;
+          return reject(new Error('server failed to create tokenSeed'));
+        tries--;
         _tokenSeedCreate();
       });
     };
@@ -60,6 +59,7 @@ userSchema.methods.tokenCreate = function() {
 const User = module.exports = mongoose.model('user', userSchema);
 
 User.create = function(data){
+  console.log(data);
   let password = data.password;
   delete data.password;
   return new User(data).passwordHashCreate(password)
