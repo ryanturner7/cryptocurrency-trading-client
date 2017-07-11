@@ -51,7 +51,7 @@ tradeRouter.get('/api/profile/trade', (req, res, next) => {
   const { type, max } = req.params;
   Trade.find(type)
     .then(trades => {
-      trades.filter(v => v < max);
+      trades = max ?  trades.filter(v => v < max) : trades;
       return res.json(trades);
     })
     .catch(() => next(new Error('bad request')));
