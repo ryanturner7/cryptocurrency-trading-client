@@ -3,6 +3,7 @@
 db/
 .env
 .test.env
+.nyc_output
 build/
 node-modules
 
