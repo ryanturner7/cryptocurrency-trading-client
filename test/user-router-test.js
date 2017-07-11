@@ -63,5 +63,44 @@ describe('tesing user auth-router', () => {
           expect(res.status).toEqual(200);
         });
     });
+    it('should respond with code 401', () => {
+      let tempUser;
+      return mockUser.createOne()
+        .then(userData => {
+          tempUser = userData.user;
+          let encoded = '09kjk534kljlk345435435';
+          return superagent.get(`${API_URL}/api/auth/login`)
+            .set('Authorization', `Basic ${encoded}`);
+        })
+        .catch(res => {
+          expect(res.status).toEqual(401);
+        });
+    });
+    it('should respond with code 400', () => {
+      let tempUser;
+      return mockUser.createOne()
+        .then(userData => {
+          tempUser = userData.user;
+          let encoded = new Buffer(`:${userData.password}`).toString('base64');
+          return superagent.get(`${API_URL}/api/auth/login`)
+            .set('Authorization',  `Basic ${encoded}`);
+        })
+        .catch(res => {
+          expect(res.status).toEqual(401);
+        });
+    });
+    it('should respond with code 400', () => {
+      let tempUser;
+      return mockUser.createOne()
+        .then(userData => {
+          tempUser = userData.user;
+          let encoded = new Buffer(`${userData.username}:${userData.password}`).toString('base64');
+          return superagent.get(`${API_URL}/api/auth/login`)
+            .set('Authorization');
+        })
+        .catch(res => {
+          expect(res.status).toEqual(401);
+        });
+    });
   });
 });

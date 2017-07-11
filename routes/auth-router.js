@@ -9,6 +9,7 @@ const User = require('../model/user.js');
 
 //module logic
 const authRouter = module.exports = new Router();
+const basicAuth = require('../lib/basic-auth-middleware.js');
 
 authRouter.post('/api/auth/register', jsonParser, (req, res, next) => {
 
