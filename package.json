@@ -11,7 +11,7 @@
     "start-db": "mkdir -p ./db && mongod --dbpath ./db",
     "stop-db": "killall mongod",
     "test": "nyc mocha",
-    "lint": "eslint"
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
