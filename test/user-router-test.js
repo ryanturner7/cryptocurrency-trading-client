@@ -37,7 +37,7 @@ describe('tesing user auth-router', () => {
           expect(res.status).toEqual(400);
         });
     });
-    it('should respond with code 401', () => {
+    it('should respond with code 409', () => {
       return superagent.post(`${API_URL}/api/auth/register`)
         .send({
           username: 'test_user01',
@@ -96,7 +96,7 @@ describe('tesing user auth-router', () => {
           tempUser = userData.user;
           let encoded = new Buffer(`${userData.username}:${userData.password}`).toString('base64');
           return superagent.get(`${API_URL}/api/auth/login`)
-            .set('Authorization');
+            .set('Authorization',  ` `);
         })
         .catch(res => {
           expect(res.status).toEqual(401);
