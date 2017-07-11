@@ -15,6 +15,6 @@ profileRouter.get('/api/user', (req, res, next) => {
     .catch(next);
 });
 
-profileRouter.put('/api/user/profile', bearerAuth, jsonParser, (req, res, next) => {
-  
-})
+// profileRouter.put('/api/user/profile', bearerAuth, jsonParser, (req, res, next) => {
+//
+// })
