@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "start-db": "mkdir -p ./db && mongod --dpath ./db",
+    "start-db": "mkdir -p ./db && mongod --dbpath ./db",
     "stop-db": "killall mongod",
     "test": "nyc mocha",
     "lint": "eslint"
