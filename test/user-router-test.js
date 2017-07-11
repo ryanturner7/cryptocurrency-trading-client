@@ -44,7 +44,7 @@ describe('tesing user auth-router', () => {
           email: 'test01@test.com',
         })
         .catch(res => {
-          expect(res.status).toEqual(400);
+          expect(res.status).toEqual(409);
         });
     });
   });
