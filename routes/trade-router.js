@@ -38,11 +38,21 @@ tradeRouter.post('/api/profile/trade', jsonParser, (req, res, next) => {
 tradeRouter.put('/api/profile/trade', jsonParser, (req, res, next) => {
   const { serial, forSale, askingPrice } = req.body;
   if (!forSale || !askingPrice) return next(new Error('required arguments'));
-  Trade.find(serial, (err, trade) => {
-    trade.forSale = forSale;
-    trade.askingPrice = askingPrice;
-    trade.save(() => res.sendStatus(200))
-  });
+  Trade.find(serial)
+    .then(trade => {
+      trade.forSale = forSale;
+      trade.askingPrice = askingPrice;
+      trade.save(() => res.sendStatus(200));
+    })
+    .catch(() => next(new Error('bad request')));
 });
 
-tradeRouter.get('/api/profile/trade')
+tradeRouter.get('/api/profile/trade', (req, res, next) => {
+  const { type, max } = req.params;
+  Trade.find(type)
+    .then(trades => {
+      trades.filter(v => v < max);
+      return res.json(trades);
+    })
+    .catch(() => next(new Error('bad request')));
+});
