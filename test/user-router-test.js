@@ -15,7 +15,7 @@ const API_URL = process.env.API_URL;
 describe('tesing user auth-router', () => {
   before(server.start);
   after(server.stop);
-  afterEach(cleanDB);
+  after(cleanDB);
 
   describe('tesing POST api/auth/register', () => {
     it('should respond with a token', () => {
@@ -32,6 +32,17 @@ describe('tesing user auth-router', () => {
     it('should respond with code 400', () => {
       return superagent.post(`${API_URL}/api/auth/register`)
         .send({})
+        .catch(res => {
+          expect(res.status).toEqual(400);
+        });
+    });
+    it('should respond with code 401', () => {
+      return superagent.post(`${API_URL}/api/auth/register`)
+        .send({
+          username: 'test_user01',
+          password: 'top secret01',
+          email: 'test01@test.com',
+        })
         .catch(res => {
           expect(res.status).toEqual(400);
         });
