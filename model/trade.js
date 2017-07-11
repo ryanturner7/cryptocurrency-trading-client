@@ -12,7 +12,7 @@ const tradeSchema = mongoose.Schema({
   sellPrice: { type: Number },
   sellDate: { type: Date },
   forSale: { type: Boolean, default: false },
-  askingPrice: { type: Number }
+  askingPrice: { type: Number },
 });
 
 const Trade = module.exports = mongoose.model('trade', tradeSchema);
