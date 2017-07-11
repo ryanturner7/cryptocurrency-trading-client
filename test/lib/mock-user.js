@@ -7,16 +7,24 @@ const mockUser = module.exports = {};
 
 
 mockUser.createOne = () => {
+
+  let result = {};
+  result.password = faker.internet.password();
   return new User({
-    name: faker.name.findName(),
+    username: faker.internet.userName(),
+    email: faker.internet.email(),
 
   })
-    .save();
-};
+    .passwordHashCreate(result.password)
+    .then(user => {
+      result.user = user;
+      return user.tokenCreate();
 
+    })
 
-mockUser.createMany = (n) => {
-  let mockUserArray = new Array(n)
-    .fill(0).map(() => mockUser.createOne());
-  return Promise.all(mockUserArray);
+    .then(token => {
+      result.token = token;
+      return result;
+
+    });
 };
