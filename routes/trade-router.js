@@ -22,6 +22,15 @@ tradeRouter.post('/api/profile/trade', jsonParser, (req, res, next) => {
     trade.sellDate = currentDate;
     trade.forSale = false;
     trade.save(() => {
-    })
+      tradeCopy.purchasedFrom = req.user.username;
+      tradeCopy.purchasePrice = price;
+      tradeCopy.purchaseDate = currentDate;
+      User.findById(req.user._id)
+      .then(user => {
+        user.trades.push(tradeCopy);
+        return res.sendStatus(200);
+      })
+      .catch(() => return next(new Error('bad request'));
+    });
   });
 });
