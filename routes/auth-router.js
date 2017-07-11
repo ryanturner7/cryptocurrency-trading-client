@@ -13,7 +13,7 @@ const authRouter = module.exports = new Router();
 authRouter.post('/api/auth/register', jsonParser, (req, res, next) => {
 
   if(!req.body.password || !req.body.username) {
-    return next(new Error('invalid body'));
+    return next(new Error('required arguments'));
   }
   User.create(req.body)
     .then(token => res.send(token))
