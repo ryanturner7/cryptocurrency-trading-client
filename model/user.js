@@ -35,6 +35,7 @@ userSchema.methods.tokenSeedCreate = function (){
     let tries = 1;
 
     let _tokenSeedCreate = () => {
+      console.log('test',this);
       this.tokenSeed = crypto.randomBytes(32).toString('hex');
       this.save()
         .then(() => resolve(this))
@@ -59,7 +60,6 @@ userSchema.methods.tokenCreate = function() {
 const User = module.exports = mongoose.model('user', userSchema);
 
 User.create = function(data){
-  console.log(data);
   let password = data.password;
   delete data.password;
   return new User(data).passwordHashCreate(password)
