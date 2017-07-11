@@ -30,7 +30,7 @@ tradeRouter.post('/api/profile/trade', jsonParser, (req, res, next) => {
         user.trades.push(tradeCopy);
         return res.sendStatus(200);
       })
-      .catch(() => return next(new Error('bad request'));
+      .catch(() => next(new Error('bad request')));
     });
   });
 });
