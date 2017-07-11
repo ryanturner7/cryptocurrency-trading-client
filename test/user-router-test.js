@@ -48,4 +48,19 @@ describe('tesing user auth-router', () => {
         });
     });
   });
+  describe('testing GET /api/auth/login', () => {
+    it('should respond with a token', () => {
+      let tempUser;
+      return mockUser.createOne()
+        .then(userData => {
+          tempUser = userData.user;
+          let encoded = new Buffer(`${tempUser.username}:${userData.password}`).toString('base64');
+          return superagent.get(`${API_URL}/api/auth/login`)
+            .set('Authorization', `Basic ${encoded}`);
+        })
+        .then(res => {
+          expect(res.status).toEqual(200);
+        });
+    });
+  });
 });
