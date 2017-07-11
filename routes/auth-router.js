@@ -19,3 +19,10 @@ authRouter.post('/api/auth/register', jsonParser, (req, res, next) => {
     .then(token => res.send(token))
     .catch(next);
 });
+
+authRouter.get('/api/auth/login', basicAuth, (req, res, next) => {
+  console.log('/api/auth/login');
+  req.user.tokenCreate()
+    .then(token => res.send(token))
+    .catch(next);
+});
