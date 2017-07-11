@@ -9,6 +9,7 @@ const User = require('../model/user.js');
 
 //module logic
 const authRouter = module.exports = new Router();
+const basicAuth = require('../lib/basic-auth-middleware.js');
 
 authRouter.post('/api/auth/register', jsonParser, (req, res, next) => {
 
@@ -16,6 +17,13 @@ authRouter.post('/api/auth/register', jsonParser, (req, res, next) => {
     return next(new Error('required arguments'));
   }
   User.create(req.body)
+    .then(token => res.send(token))
+    .catch(next);
+});
+
+authRouter.get('/api/auth/login', basicAuth, (req, res, next) => {
+  console.log('/api/auth/login');
+  req.user.tokenCreate()
     .then(token => res.send(token))
     .catch(next);
 });
