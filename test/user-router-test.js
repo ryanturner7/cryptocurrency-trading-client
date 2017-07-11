@@ -27,5 +27,12 @@ describe('tesing user auth-router', () => {
           expect(res.status).toEqual(200);
         });
     });
+    it('should respond with code 400', () => {
+      return superagent.post(`${API_URL}/api/auth/register`)
+        .send({})
+        .catch(res => {
+          expect(res.status).toEqual(400);
+        });
+    });
   });
 });
