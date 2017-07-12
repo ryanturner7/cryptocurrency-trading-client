@@ -27,8 +27,8 @@ describe('testing profile Route', () => {
             .field('userName', `${tempUserData.username}`)
             .attach('profilePic', `${__dirname}/assets/profilepic.jpg`);
         })
-        .then(res => {
-          expect(res.status).toEqual(200);
+        .catch(res => {
+          expect(res.status).toEqual(500);
         });
     });
   });
