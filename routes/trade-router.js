@@ -26,11 +26,11 @@ tradeRouter.post('/api/profile/trade', jsonParser, (req, res, next) => {
       tradeCopy.purchasePrice = price;
       tradeCopy.purchaseDate = currentDate;
       User.findById(req.user._id)
-      .then(user => {
-        user.trades.push(tradeCopy);
-        return res.sendStatus(200);
-      })
-      .catch(() => next(new Error('bad request')));
+        .then(user => {
+          user.trades.push(tradeCopy);
+          return res.sendStatus(200);
+        })
+        .catch(() => next(new Error('bad request')));
     });
   });
 });
