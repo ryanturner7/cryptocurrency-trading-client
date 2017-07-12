@@ -9,3 +9,10 @@
 - MVP by Wednesday morning
 
 ## Dia dos
+
+- Not quite at the goal set from yesterday bc of some complicated roadblocks
+- Weve been confused because we have been using trade as a model and not coin
+- Modified our coin model now
+- Coins are going to always be forsale always with an asking price
+- When a coin is sold, we just update the user ID with the new buyers ID
+- Our next goal - have coin and profile finished by 4 tomorrow as MVP
