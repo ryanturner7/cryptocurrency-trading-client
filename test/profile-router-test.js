@@ -1,6 +1,7 @@
 'use strict';
 
 require('dotenv').config({path: `${__dirname}/../.env`});
+require('./lib/mock-aws.js');
 
 const expect = require('expect');
 const superagent = require('superagent');
@@ -27,8 +28,8 @@ describe('testing profile Route', () => {
             .field('userName', `${tempUserData.username}`)
             .attach('profilePic', `${__dirname}/assets/profilepic.jpg`);
         })
-        .catch(res => {
-          expect(res.status).toEqual(500);
+        .then(res => {
+          expect(res.status).toEqual(200);
         });
     });
   });
