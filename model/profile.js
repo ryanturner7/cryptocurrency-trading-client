@@ -2,6 +2,9 @@
 
 const mongoose = require('mongoose');
 
+const {S3} = require('aws-sdk');
+const s3 = new S3();
+
 const profileSchema = mongoose.Schema({
   userName:{type: String, required: true},
   userID:{type: mongoose.Schema.Types.ObjectId, required: true},
