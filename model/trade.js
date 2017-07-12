@@ -2,17 +2,11 @@
 
 const mongoose = require('mongoose');
 
-const tradeSchema = mongoose.Schema({
-  serial: { type: String, required: true },
+const coinSchema = mongoose.Schema({
+  userId: { type: String, required: true },
   type: { type: String, required: true },
-  purchasedFrom: { type: mongoose.Schema.Types.ObjectId, required: true },
-  purchasePrice: { type: Number, required: true },
-  purchaseDate: { type: Date, default: Date.now },
-  soldTo: { type: mongoose.Schema.Types.ObjectId },
-  sellPrice: { type: Number },
-  sellDate: { type: Date },
-  forSale: { type: Boolean, default: false },
-  askingPrice: { type: Number }
+  askingPrice: { type: Number, required: true },
+  history: [{ sellerId: mongoose.Schema.Types.ObjectId, date: Date, price: Number }],
 });
 
-const Trade = module.exports = mongoose.model('trade', tradeSchema);
+module.exports = mongoose.model('coin', coinSchema);
