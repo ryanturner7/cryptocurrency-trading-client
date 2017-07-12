@@ -32,4 +32,10 @@ describe('testing profile Route', () => {
         });
     });
   });
+
+  describe('testing GET /api/profile/profiles', () => {
+    it('should retrieve an profile', () => {
+
+    });
+  });
 });
