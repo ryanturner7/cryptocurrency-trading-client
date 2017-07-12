@@ -11,11 +11,7 @@ addons:
       - gcc-4.8
       - g++-4.8
 env:
-<<<<<<< HEAD
-  - CXX=g++-4.8 APP_SECRET='jaksnfwiutwhetlkwnrwonr923huijo23jrw' MONGODB_URI='mongodb://sdf8ysd8f7s87fdyts87fd:f98dgf7d98fygd87sygs8d7@ds153652.mlab.com:53652/crypto-app' AWS_BUCKET='   ' AWS_ACCESS_KEY_ID='  ' AWS_SECRET_ACCESS_KEY='  ' API_URL='http://localhost:3000' PORT=3000
-=======
-  - CXX=g++-4.8 APP_SECRET='jaksnfwiutwhetlkwnrwonr923huijo23jrw' MONGODB_URI='mongodb://localhost/travis' AWS_BUCKET='fake-bucket' AWS_ACCESS_KEY_ID='fakekey' AWS_SECRET_ACCESS_KEY='fakekey' API_URL='http://localhost:3000' PORT=3000
->>>>>>> 649df14eb828cc891ebe05f573a82d7e1051d137
+  - CXX=g++-4.8 APP_SECRET='jaksnfwiutwhetlkwnrwonr923huijo23jrw' AWS_BUCKET='   ' AWS_ACCESS_KEY_ID='  ' AWS_SECRET_ACCESS_KEY='  ' API_URL='http://localhost:3000' PORT=3000
 sudo: required
 before_script: npm i
 script:
