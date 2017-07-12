@@ -38,7 +38,7 @@ userSchema.methods.tokenSeedCreate = function (){
       this.tokenSeed = crypto.randomBytes(32).toString('hex');
       this.save()
         .then(() => resolve(this))
-        .catch(err => {
+        .catch(() => {
           if(tries < 1)
             return reject(new Error('server failed to create tokenSeed'));
           tries--;

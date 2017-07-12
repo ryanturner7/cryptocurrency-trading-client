@@ -13,7 +13,6 @@ profileRouter.post('/api/profile/create', bearerAuth, s3Upload('profilePic'), (r
   new Profile({
     userName: req.user.username,
     userID: req.user._id.toString(),
-    // trades: '3454',
     profilePic: req.s3Data.Location,
     inbox:'msg one',
     outbox: 'msg two',
