@@ -9,6 +9,7 @@ const superagent = require('superagent');
 const server = require('../lib/server.js');
 const cleanDB = require('./lib/clean-db.js');
 const mockUser = require('./lib/mock-user.js');
+const mockProfile = require('../model/profile.js');
 
 const API_URL = process.env.API_URL;
 
@@ -36,7 +37,18 @@ describe('testing profile Route', () => {
 
   describe('testing GET /api/profile/profiles', () => {
     it('should retrieve an profile', () => {
-
+      let tempUserData;
+      return mockUser.createOne()
+        .then(userData => {
+          tempUserData = userData;
+console.log('tempuser', tempUserData._id);
+          return superagent.get(`${API_URL}/api/profile/profile`)
+            .set('Authorization', `Bearer ${tempUserData.token}`);
+        })
+        .then(res => {
+          console.log('^^^^^^^^^^^',res.body);
+          expect(res.status).toEqual(200);
+        });
     });
   });
 });

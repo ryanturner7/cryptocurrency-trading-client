@@ -22,3 +22,13 @@ profileRouter.post('/api/profile/create', bearerAuth, s3Upload('profilePic'), (r
     .then(profile => res.json(profile))
     .catch(next);
 });
+
+profileRouter.get('/api/profile/profile', bearerAuth, (req, res, next) => {
+  console.log('profile get', req.user);
+  return Profile.find()
+    .then(profile => {
+      console.log('profile', profile);
+      res.json(profile);
+    })
+    .catch(next);
+});
