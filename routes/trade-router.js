@@ -27,7 +27,8 @@ tradeRouter.post('/api/profile/trade', jsonParser, (req, res, next) => {
       tradeCopy.purchaseDate = currentDate;
       User.findById(req.user._id)
       .then(user => {
-        user.trades.push(tradeCopy);
+        Trade.create(tradeCopy)
+        user.trades.push(tradeCopy._id);
         return res.sendStatus(200);
       })
       .catch(() => next(new Error('bad request')));
@@ -37,11 +38,11 @@ tradeRouter.post('/api/profile/trade', jsonParser, (req, res, next) => {
 
 tradeRouter.put('/api/profile/trade', jsonParser, (req, res, next) => {
   const { serial, forSale, askingPrice } = req.body;
-  if (!forSale || !askingPrice) return next(new Error('required arguments'));
+  if (!serial) return next(new Error('required arguments'));
   Trade.find(serial)
     .then(trade => {
-      trade.forSale = forSale;
-      trade.askingPrice = askingPrice;
+      trade.forSale = forSale || trade.forSale;
+      trade.askingPrice = askingPrice || trade.askingPrice;
       trade.save(() => res.sendStatus(200));
     })
     .catch(() => next(new Error('bad request')));
