@@ -3,7 +3,6 @@
 const mongoose = require('mongoose');
 
 const coinSchema = mongoose.Schema({
-  // userId: mongoose.Schema.Types.ObjectId,
   userId: { type: String, required: true },
   type: { type: String, required: true },
   askingPrice: { type: Number, required: true },
