@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const profileSchema = mongoose.Schema({
   userName:{type: String, required: true},
   userID:{type: mongoose.Schema.Types.ObjectId, required: true},
-  trades:[{type: mongoose.Schema.Types.ObjectId, ref: '#'}],
+  trades:{type: mongoose.Schema.Types.ObjectId},
   profilePic:{type: String},
   inbox:{type: String},
   outbox:{type: String},
