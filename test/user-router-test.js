@@ -107,4 +107,20 @@ describe('tesing user auth-router', () => {
         });
     });
   });
+
+  describe('testing DELETE /api/user', () => {
+    it('should delete user and respond with 200', () => {
+      let tempUser;
+      return mockUser.createOne()
+        .then(userData => {
+          tempUser = userData;
+          return superagent.delete(`${API_URL}/api/auth/delete`)
+            .set('Authorization', `Bearer ${tempUser.token}`);
+        })
+        .then(res => {
+          expect(res.status).toEqual(200);
+          expect(res._id).toEqual(tempUser._id);
+        });
+    });
+  });
 });
