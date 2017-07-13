@@ -51,4 +51,21 @@ describe('testing profile Route', () => {
         });
     });
   });
+  describe('testing PUT /api/profile/profile', () => {
+    it('should update a profile', () => {
+      let tempUserData;
+      return mockUser.createOne()
+        .then(userData => {
+          tempUserData = userData;
+          console.log('tempuser', tempUserData._id);
+          return superagent.put(`${API_URL}/api/profile/profile`)
+            .set('Authorization', `Bearer ${tempUserData.token}`)
+            .field('userName', `oscar`)
+            .attach('profilePic', `${__dirname}/assets/profilepic2.png`);
+        })
+        .then(res => {
+          expect(res.status).toEqual(200);
+        });
+    });
+  });
 });

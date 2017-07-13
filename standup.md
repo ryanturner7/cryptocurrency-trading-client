@@ -17,7 +17,7 @@
 - When a coin is sold, we just update the user ID with the new buyers ID
 - Our next goal - have coin and profile finished by 4 tomorrow as MVP
 
-# Dia tres
+## Dia tres
 
 - We're atleast at 80% MVP which we should be at 100% by tomorrow morning.
 - Practice presentations tomorrow
