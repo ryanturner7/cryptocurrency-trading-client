@@ -24,8 +24,10 @@ userSchema.methods.passwordHashCompare = function(password) {
   console.log('passwordHashCompare', password);
   return bcrypt.compare(password, this.passwordHash)
     .then(isCorrect => {
+      /* istanbul ignore next */
       if(isCorrect)
         return this;
+      /* istanbul ignore next */
       throw new Error('Unauthorized password does not match.');
     });
 };
