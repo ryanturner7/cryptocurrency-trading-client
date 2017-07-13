@@ -19,11 +19,11 @@ coinRouter.post('/api/coin', jsonParser, bearerAuth, (req, res, next) => {
 
 coinRouter.put('/api/coin', jsonParser, bearerAuth, (req, res, next) => {
   const { type, askingPrice, buyerId } = req.body;
-  const sellerId = req.user._id;
-  Coin.findOne({ userId: sellerId, type, askingPrice })
+  const userId = req.user._id;
+  Coin.findOne({ userId, type, askingPrice })
     .then(coin => {
       const history = {
-        sellerId,
+        sellerId: userId,
         date: new Date(),
         price: coin.price,
       };
@@ -34,12 +34,16 @@ coinRouter.put('/api/coin', jsonParser, bearerAuth, (req, res, next) => {
     .catch(() => next(new Error('bad request')));
 });
 
-coinRouter.get('/api/coin', bearerAuth, (req, res, next) => {
-  const { type, max } = req.params;
-  Coin.find(type)
+coinRouter.get('/api/coin', bearerAuth, (req, res) => {
+  const { type, max } = req.query;
+  Coin.find({ type })
     .then(coins => {
-      coins = max ?  coins.filter(v => v < max) : coins;
+      coins = max ?  coins.filter(v => v.askingPrice < max) : coins;
       return res.json(coins);
-    })
-    .catch(() => next(new Error('bad request')));
+    });
+});
+
+coinRouter.delete('/api/coin', jsonParser, bearerAuth, (req, res, next) => {
+  Coin.findByIdAndRemove(req.body.coinId)
+    .then(() => res.sendStatus(200))
 });
