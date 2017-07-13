@@ -43,7 +43,7 @@ coinRouter.get('/api/coin', bearerAuth, (req, res) => {
     });
 });
 
-coinRouter.delete('/api/coin', jsonParser, bearerAuth, (req, res, next) => {
+coinRouter.delete('/api/coin', jsonParser, bearerAuth, (req, res) => {
   Coin.findByIdAndRemove(req.body.coinId)
-    .then(() => res.sendStatus(200))
+    .then(() => res.sendStatus(200));
 });
