@@ -16,3 +16,12 @@
 - Coins are going to always be forsale always with an asking price
 - When a coin is sold, we just update the user ID with the new buyers ID
 - Our next goal - have coin and profile finished by 4 tomorrow as MVP
+
+# Dia tres
+
+- We're atleast at 80% MVP which we should be at 100% by tomorrow morning.
+- Practice presentations tomorrow
+- We have User and Trades completely finished
+- Just need to finish up profile and write docs
+- We have 92% code coverage at the moment
+- Boooooyaaaaa
