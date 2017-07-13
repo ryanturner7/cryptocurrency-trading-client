@@ -20,14 +20,17 @@ Express middleware was used to provide us with base routing abilities.
 
 This route creates a new user by providing the data listed above, into the body of the request. Creating a new user is the first required step to using this API, as it also creates a profile and allows you to store and access data.
 
-To create a basic user, the user must send the following data as a request: 
+* To create a basic user, the user must send the following data as a request:
 {"username":"TESTUSER","password":"pwd","email":"testw@gma.com"}
 
 Once signed up, a token is returned to the user that is used only to login via the ```api/auth/login``` route. Once signed in, a new token will be received to refer to all future routes.
 
+* Example response:
+```eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblNlZWQiOiJiNWE5ZTk2MDdlYjRkY2JjNjdhNWQzNmU3MThlZGFmNzJmNDlkY2UwNDI1NDJiZDk4MDdkYjdkODBlN2QzMmU3IiwiaWF0IjoxNDk5OTg3Mzg3fQ.jV2OC1hu48YZ3fbAapdMPlvEC_vjNG1LIaIKQ_9b0t```
+
 ### GET /api/login
 
-In order for a user to be authenticated, this route requires an authorization header which includes the key value pair of *username* and *password* that are specific to the current user. Once again, signing in returns a new token to the user for future ID reference.
+In order for a user to be authenticated, this route requires an authorization header which includes the key value pair of *username* and *password* that are specific to the current user. Once again, signing in returns a new token to the user for future ID reference. 
 
 ### GET /api/auth/delete
 
