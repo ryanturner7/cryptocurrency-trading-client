@@ -76,10 +76,3 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblNlZWQiOiJiNWE5ZTk2MDdlYjRkY2JjNjd
 
 #### DELETE /api/coin
 * Since we create coins, we can also delete them. This is made possible by sending a findByIdAndRemove delete request on the specified coin.
-
-## About Us
-
-### **Ryan Turner**
-![ryan-turner]()
-Hey, I'm Ryan and I'm a full stack JavaScript  
-developer. lsadjohfdkasjbf eljgfslkdjgfn fdngd  
