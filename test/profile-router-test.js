@@ -1,19 +1,18 @@
 'use strict';
 
-require('dotenv').config({path: `${__dirname}/../.env`});
-require('./lib/mock-aws.js');
+require('dotenv').config({ path: `${__dirname}/../.env` });
+require('./lib/mock-aws');
 
 const expect = require('expect');
 const superagent = require('superagent');
 
-const server = require('../lib/server.js');
-const cleanDB = require('./lib/clean-db.js');
-const mockUser = require('./lib/mock-user.js');
-
+const server = require('../lib/server');
+const cleanDB = require('./lib/clean-db');
+const mockUser = require('./lib/mock-user');
 
 const API_URL = process.env.API_URL;
 
-describe('testing profile Route', () => {
+describe('testing Profile', () => {
   before(server.start);
   after(server.stop);
   afterEach(cleanDB);
@@ -51,6 +50,7 @@ describe('testing profile Route', () => {
         });
     });
   });
+
   describe('testing PUT /api/profile/profile', () => {
     it('should update a profile', () => {
       let tempUserData;
