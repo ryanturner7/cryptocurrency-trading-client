@@ -1,12 +1,14 @@
 # Bit Trader
 
+[![Build Status](https://travis-ci.org/ryanturner7/cryptocurrency-trading-client.svg?branch=master)](https://travis-ci.org/ryanturner7/cryptocurrency-trading-client)
+
 Bit Trader is a RESTful API written in **Node.js**, created for a **simple**, yet effective user experience for managing and analyzing cryptocurrency **trades** on the back-end. This allows a user to create, read, update and destroy user objects while also creating coins with the ability to monitor their history and sell them.
 
 ### Staging and production
 
 Using **Node.js**, we used the Node.js server, Node.http module, express middleware, and a mongo database to store our data. Once our code is ready for **production**, we push it onto our deployment branch to deploy onto Heroku.
 
-Bit Trader uses http requests to allow for the user to receive a response to interact with the API.
+* Bit Trader uses http requests to allow for the user to receive a response to interact with the API.
 
 ### Middleware
 
@@ -14,7 +16,7 @@ Express middleware was used to provide us with base routing abilities.
 
 ## Route overview
 
-### POST /api/auth/register
+#### POST /api/auth/register
 
 * Provide username, password, and email as JSON.
 
@@ -26,14 +28,53 @@ This route creates a new user by providing the data listed above, into the body 
 Once signed up, a token is returned to the user that is used only to login via the ```api/auth/login``` route. Once signed in, a new token will be received to refer to all future routes.
 
 * Example response:
-```eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblNlZWQiOiJiNWE5ZTk2MDdlYjRkY2JjNjdhNWQzNmU3MThlZGFmNzJmNDlkY2UwNDI1NDJiZDk4MDdkYjdkODBlN2QzMmU3IiwiaWF0IjoxNDk5OTg3Mzg3fQ.jV2OC1hu48YZ3fbAapdMPlvEC_vjNG1LIaIKQ_9b0t```
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblNlZWQiOiJiNWE5ZTk2MDdlYjRkY2JjNjdhNWQzNmU3MThlZGFmNzJmNDlkY2UwNDI1NDJiZDk4MDdkYjdkODBlN2QzMmU3IiwiaWF0IjoxNDk5OTg3Mzg3fQ.jV2OC1hu48YZ3fbAapdMPlvEC_vjNG1LIaIKQ_9b0t
+```
 
-### GET /api/login
+#### GET /api/login
 
-In order for a user to be authenticated, this route requires an authorization header which includes the key value pair of *username* and *password* that are specific to the current user. Once again, signing in returns a new token to the user for future ID reference. 
+* In order for a user to be authenticated, this route requires an authorization header which includes the key value pair of *username* and *password* that are specific to the current user.
+* Signing in returns a new token to the user for future ID reference.
 
-### GET /api/auth/delete
+* Example response:
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblNlZWQiOiJiNWE5ZTk2MDdlYjRkY2JjNjdhNWQzNmU3MThlZGFmNzJmNDlkY2UwNDI1NDJiZDk4MDdkYjdkODBlN2QzMmU3IiwiaWF0IjoxNDk5OTg3Mzg3fQ.jV2OC1hu48YZ3fbAapdMPlvEC_vjNG1LIaIKQ_9b0tM
+```
 
-For whatever the reason may be, there is always a need to delete users which is made possible by this route. In order to do so, the ID of the desired user to be deleted must be specified.
+#### GET /api/auth/delete
 
-###
+* For whatever the reason may be, there is always a need to delete users which is made possible by this route. In order to do so, the ID of the desired user to be deleted must be specified.
+
+#### POST /api/profile/create
+
+* Once a user is created, a profile is able to be instantiated using a POST route.
+* In order to create a profile, a user must send a username, userID, tokenseed, and a profile photo as a request to receive a profile in response.
+
+#### GET /api/profile/profile
+
+* In order to view other profiles, a user is required to provide a token that they received from bearer auth when the user created the profile.
+
+#### PUT /api/profile/profile
+
+* Updating a profile is made possible with this PUT request.
+* In order to update a profile, a user must already have created a profile.
+* To update a profile, the user is require to provide a token.
+
+#### POST /api/coin
+
+* Creating a coin is possible by sending type, askingPrice, and userId as a request to receive a coin in response.
+
+#### PUT /api/coin
+
+* Once a user is in possession of coins, they can update the coin by sending a put request.
+* The sellerId, date and price will be updated.
+
+#### GET /api/coin
+
+* A user can basically view the life of each coin by sending a get request, which will respond with the history of that specified coin.
+
+#### DELETE /api/coin
+* Since we create coins, we can also delete them. This is made possible by sending a findByIdAndRemove request on the specified coin.
+
+## About Us
