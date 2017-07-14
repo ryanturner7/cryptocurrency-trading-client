@@ -6,7 +6,7 @@ Bit Trader is a RESTful API written in **Node.js**, created for a **simple**, ye
 
 ### Staging and production
 
-Using **Node.js**, we used the Node.js server, Node.http module, express middleware, and a mongo database to store our data. Once our code is ready for **production**, we push it onto our deployment branch to deploy onto Heroku.
+With **Node.js** we used the Node.js server, Node.http module, express middleware, and a mongo database to store our data. Once our code is ready for **production**, we push it onto our deployment branch to deploy onto Heroku.
 
 * Bit Trader uses http requests to allow for the user to receive a response to interact with the API.
 
@@ -68,13 +68,18 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblNlZWQiOiJiNWE5ZTk2MDdlYjRkY2JjNjd
 #### PUT /api/coin
 
 * Once a user is in possession of coins, they can update the coin by sending a put request.
-* The sellerId, date and price will be updated.
+* The seller ID, date and price will be updated.
 
 #### GET /api/coin
 
 * A user can basically view the life of each coin by sending a get request, which will respond with the history of that specified coin.
 
 #### DELETE /api/coin
-* Since we create coins, we can also delete them. This is made possible by sending a findByIdAndRemove request on the specified coin.
+* Since we create coins, we can also delete them. This is made possible by sending a findByIdAndRemove delete request on the specified coin.
 
 ## About Us
+
+### **Ryan Turner**
+![ryan-turner]()
+Hey, I'm Ryan and I'm a full stack JavaScript  
+developer. lsadjohfdkasjbf eljgfslkdjgfn fdngd  
