@@ -30,10 +30,16 @@ Once signed up, a token is returned to the user that is used only to login via t
 
 ### GET /api/login
 
-In order for a user to be authenticated, this route requires an authorization header which includes the key value pair of *username* and *password* that are specific to the current user. Once again, signing in returns a new token to the user for future ID reference. 
+In order for a user to be authenticated, this route requires an authorization header which includes the key value pair of *username* and *password* that are specific to the current user. Once again, signing in returns a new token to the user for future ID reference.
 
 ### GET /api/auth/delete
 
 For whatever the reason may be, there is always a need to delete users which is made possible by this route. In order to do so, the ID of the desired user to be deleted must be specified.
 
 ###
+
+## ABout the team
+
+#### Oscar Cauich
+
+Fullstack javascript developer with a background in computer networks.  6 years experience working in the IT Field before switching gears to software development. Fascinated with the amount of  knowledge that is spread in the world wide web.
