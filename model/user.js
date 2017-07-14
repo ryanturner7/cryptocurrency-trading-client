@@ -21,7 +21,9 @@ userSchema.methods.passwordHashCreate = function(password) {
 };
 
 userSchema.methods.passwordHashCompare = function(password) {
+
   // console.log('passwordHashCompare', password);
+
   return bcrypt.compare(password, this.passwordHash)
     .then(isCorrect => {
       /* istanbul ignore next */
