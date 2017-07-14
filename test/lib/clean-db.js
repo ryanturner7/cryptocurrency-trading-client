@@ -1,8 +1,8 @@
 'use strict';
 
 const User = require('../../model/user');
-const Profile = require('../../model/profile');
 const Coin = require('../../model/trade');
+const Profile = require('../../model/profile');
 
 module.exports = () => {
   return Promise.all([
