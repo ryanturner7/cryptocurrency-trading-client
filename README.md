@@ -76,3 +76,47 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblNlZWQiOiJiNWE5ZTk2MDdlYjRkY2JjNjd
 
 #### DELETE /api/coin
 * Since we create coins, we can also delete them. This is made possible by sending a findByIdAndRemove delete request on the specified coin.
+## About Us
+&nbsp;
+
+### **Ryan Turner**
+![temp-assets/IMG_0592.JPG]()
+My name is Ryan and I'm a hackaholic. I have always been a  
+problem solver with the passion to help others which led me to  
+software because a single developer can have such an impact on a  
+massive number of people throughout the world. Coding is love, coding  
+is life.
+&nbsp;
+
+### **Oscar Cauich**
+![temp-assets/oscar.jpg]()
+Fullstack javascript developer with a background in computer  
+networks.  6 years experience working in the IT Field before  
+switching gears to software development. Fascinated with the  
+amount of  knowledge that is spread in the world wide web.
+&nbsp;
+
+### **Michael Stuart**
+![temp-assets/michael.jpg]()
+Fullstack javascript developer with a background in  
+military intelligence, tech support and customer  
+service.  Ever curious, obsessed with efficiency and  
+fluid design. Writer of beautiful code and lord of user  
+experience.
+&nbsp;
+
+
+### **Devin Griswold**
+![temp-assets/devin.jpg]()
+An U.S. Army veteran of 6 years with a broad background  
+in IT.  With a intense love for AR/VR and all manners of  
+gadgets, I have a dream that the future of humanity includes  
+a world where the natural state of the human body and  
+technology are completely merged.  The best way to be a part  
+of that movement forward is to actually contribute to that  
+software.  It also is a great way for me to do my part in  
+making sure Humanity isn't lost in this next phase of our  
+evolution.  A believer in that Node.js will be in the  
+beginning, if not the front, of the line in creating that  
+future.
+&nbsp;
