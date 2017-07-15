@@ -1,23 +1,19 @@
 'use strict';
 
 require('dotenv').config({path: `${__dirname}/../.test.env`});
-require('./lib/mock-aws.js');
+require('./lib/mock-aws');
 
-//npm modules
 const expect = require('expect');
 const superagent = require('superagent');
 
-//app modules
-
-
-const server = require('../lib/server.js');
-const cleanDB = require('./lib/clean-db.js');
-
-const mockUser = require('./lib/mock-user.js');
+const server = require('../lib/server');
+const cleanDB = require('./lib/clean-db');
+const mockUser = require('./lib/mock-user');
 
 const API_URL = process.env.API_URL;
 
-describe('tesing user auth-router', () => {
+describe('tesing User', () => {
+  let tempUser;
   before(server.start);
   after(server.stop);
   after(cleanDB);
@@ -34,6 +30,7 @@ describe('tesing user auth-router', () => {
           expect(res.status).toEqual(200);
         });
     });
+
     it('should respond with code 400', () => {
       return superagent.post(`${API_URL}/api/auth/register`)
         .send({})
@@ -41,6 +38,7 @@ describe('tesing user auth-router', () => {
           expect(res.status).toEqual(400);
         });
     });
+
     it('should respond with code 409', () => {
       return superagent.post(`${API_URL}/api/auth/register`)
         .send({
@@ -53,9 +51,9 @@ describe('tesing user auth-router', () => {
         });
     });
   });
+
   describe('testing GET /api/auth/login', () => {
     it('should respond with a token', () => {
-      let tempUser;
       return mockUser.createOne()
         .then(userData => {
           tempUser = userData.user;
@@ -67,8 +65,8 @@ describe('tesing user auth-router', () => {
           expect(res.status).toEqual(200);
         });
     });
+
     it('should respond with code 401', () => {
-      let tempUser;
       return mockUser.createOne()
         .then(userData => {
           tempUser = userData.user;
@@ -80,8 +78,8 @@ describe('tesing user auth-router', () => {
           expect(res.status).toEqual(401);
         });
     });
-    it('should respond with code 400', () => {
-      let tempUser;
+
+    it('should respond with code 401', () => {
       return mockUser.createOne()
         .then(userData => {
           tempUser = userData.user;
@@ -93,12 +91,14 @@ describe('tesing user auth-router', () => {
           expect(res.status).toEqual(401);
         });
     });
-    it('should respond with code 400', () => {
-      let tempUser;
+
+    it('should respond with code 401', () => {
       return mockUser.createOne()
         .then(userData => {
           tempUser = userData.user;
-          let encoded = new Buffer(`${userData.username}:${userData.password}`).toString('base64');
+
+          // let encoded = new Buffer(`${userData.username}:${userData.password}`).toString('base64');
+
           return superagent.get(`${API_URL}/api/auth/login`)
             .set('Authorization',  ` `);
         })

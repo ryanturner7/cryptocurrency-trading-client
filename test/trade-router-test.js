@@ -1,17 +1,20 @@
+'use strict';
+
 const expect = require('expect');
 const superagent = require('superagent');
-const mockUser = require('./lib/mock-user.js');
-const server = require('../lib/server.js');
-const cleanDB = require('./lib/clean-db.js');
+
+const server = require('../lib/server');
+const cleanDB = require('./lib/clean-db');
+const mockUser = require('./lib/mock-user');
 
 
-describe('testing coin', () => {
+describe('testing Coin', () => {
   let tempUser, tempCoin;
   before(server.start);
   after(server.stop);
   after(cleanDB);
 
-  describe('testing coin POST route', () => {
+  describe('testing POST /api/coin', () => {
     it('should return 200 status', () => {
       return mockUser.createOne()
         .then(user => {
@@ -55,7 +58,7 @@ describe('testing coin', () => {
     });
   });
 
-  describe('testing coin PUT route', () => {
+  describe('testing PUT /api/coin', () => {
     it('should return 200 status', () => {
       return mockUser.createOne()
         .then(user => {
@@ -85,7 +88,7 @@ describe('testing coin', () => {
     });
   });
 
-  describe('testing coin GET route', () => {
+  describe('testing GET /api/coin', () => {
     it('should return 200 status and a coin', () => {
       return mockUser.createOne()
         .then(user => {
@@ -110,7 +113,7 @@ describe('testing coin', () => {
     });
   });
 
-  describe('testing coin DELETE route', () => {
+  describe('testing DELETE /api/coin', () => {
     it('should return 200 status', () => {
       return mockUser.createOne()
         .then(() => {

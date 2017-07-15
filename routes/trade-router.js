@@ -3,8 +3,8 @@
 const { Router } = require('express');
 const jsonParser = require('body-parser').json();
 
-const bearerAuth = require('../lib/bearer-auth');
 const Coin = require('../model/trade');
+const bearerAuth = require('../lib/bearer-auth');
 
 const coinRouter = module.exports = new Router();
 
