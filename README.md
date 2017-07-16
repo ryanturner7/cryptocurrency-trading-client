@@ -80,7 +80,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblNlZWQiOiJiNWE5ZTk2MDdlYjRkY2JjNjd
 &nbsp;
 
 ### **Ryan Turner**
-![https://cdn-images-1.medium.com/fit/c/200/200/1*oX6H8OFJj-y_r0v8vIj7Vg.png]()
+![Ryan Turner](temp-assets/IMG_0592.JPG)
 My name is Ryan and I'm a hackaholic. I have always been a  
 problem solver with the passion to help others which led me to  
 software because a single developer can have such an impact on a  
@@ -89,7 +89,7 @@ is life.
 &nbsp;
 
 ### **Oscar Cauich**
-![temp-assets/oscar.jpg]()
+![Oscar Cauich](temp-assets/oscar.jpg)
 Fullstack javascript developer with a background in computer  
 networks.  6 years experience working in the IT Field before  
 switching gears to software development. Fascinated with the  
@@ -97,7 +97,7 @@ amount of  knowledge that is spread in the world wide web.
 &nbsp;
 
 ### **Michael Stuart**
-![temp-assets/michael.jpg]()
+![Michael Stuart](temp-assets/michael.jpg)
 Fullstack javascript developer with a background in  
 military intelligence, tech support and customer  
 service.  Ever curious, obsessed with efficiency and  
@@ -107,7 +107,7 @@ experience.
 
 
 ### **Devin Griswold**
-![temp-assets/devin.jpg]()
+![Devin Griswold](temp-assets/devin.jpg)
 An U.S. Army veteran of 6 years with a broad background  
 in IT.  With a intense love for AR/VR and all manners of  
 gadgets, I have a dream that the future of humanity includes  
