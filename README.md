@@ -80,7 +80,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblNlZWQiOiJiNWE5ZTk2MDdlYjRkY2JjNjd
 &nbsp;
 
 ### **Ryan Turner**
-![temp-assets/IMG_0592.JPG]()
+![https://cdn-images-1.medium.com/fit/c/200/200/1*oX6H8OFJj-y_r0v8vIj7Vg.png]()
 My name is Ryan and I'm a hackaholic. I have always been a  
 problem solver with the passion to help others which led me to  
 software because a single developer can have such an impact on a  
