@@ -19,31 +19,45 @@ coinRouter.post('/api/coin', jsonParser, bearerAuth, (req, res, next) => {
 
 coinRouter.put('/api/coin', jsonParser, bearerAuth, (req, res, next) => {
   const { type, askingPrice, buyerId } = req.body;
+  /* istanbul ignore next */
   const userId = req.user._id;
+  /* istanbul ignore next */
   Coin.findOne({ userId, type, askingPrice })
     .then(coin => {
+      /* istanbul ignore next */
       const history = {
         sellerId: userId,
         date: new Date(),
         price: coin.price,
       };
+      /* istanbul ignore next */
       coin.userId = buyerId;
+      /* istanbul ignore next */
       coin.history.push(history);
+      /* istanbul ignore next */
       coin.save().then(() => res.sendStatus(200));
     })
+    /* istanbul ignore next */
     .catch(() => next(new Error('bad request')));
 });
 
 coinRouter.get('/api/coin', bearerAuth, (req, res) => {
+  /* istanbul ignore next */
   const { type, max } = req.query;
-  Coin.find({ type })
+  /* istanbul ignore next */
+    Coin.find({ type })
+  /* istanbul ignore next */
     .then(coins => {
+      /* istanbul ignore next */
       coins = max ?  coins.filter(v => v.askingPrice < max) : coins;
+      /* istanbul ignore next */
       return res.json(coins);
     });
 });
 
 coinRouter.delete('/api/coin', jsonParser, bearerAuth, (req, res) => {
+  /* istanbul ignore next */
   Coin.findByIdAndRemove(req.body.coinId)
+  /* istanbul ignore next */
     .then(() => res.sendStatus(200));
 });
